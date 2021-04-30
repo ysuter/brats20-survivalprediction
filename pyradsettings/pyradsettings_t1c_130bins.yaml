@@ -1,0 +1,39 @@
+
+# #############################  Extracted using PyRadiomics version: pyradiomics-3.0  ######################################
+
+imageType:
+  Original: {}
+  LoG:
+    sigma: [2.0, 3.0]
+  Wavelet: {}
+
+featureClass:
+  shape:
+  firstorder:
+  glcm:
+  glrlm:
+  glszm:
+  ngtdm:
+  gldm:
+
+setting:
+  # Normalization
+  normalize: False
+  # normalizeScale: 100  # This allows you to use more or less the same bin width.
+
+  # Mask validation:
+  # correctMask and geometryTolerance are not needed, as both image and mask are resampled, if you expect very small
+  # masks, consider to enable a size constraint by uncommenting settings below:
+  #minimumROIDimensions: 2
+  #minimumROISize: 50
+
+  # Image discretization:
+  # The ideal number of bins is somewhere in the order of 16-128 bins. A possible way to define a good binwidt is to
+  # extract firstorder:Range from the dataset to analyze, and choose a binwidth so, that range/binwidth remains approximately
+  # in this range of bins.
+  binWidth: 19.592743389423077
+
+  # first order specific settings:
+  # When normalizing, gray values below the mean will be negative. Shifting by 300 (3 StdDevs * 100) ensures that the
+  # majority of voxels is positive (only outliers >3 SD lower than the mean will be negative).
+  # voxelArrayShift: 300
